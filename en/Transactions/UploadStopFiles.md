@@ -8,12 +8,17 @@ Upload Supporting Documents/Files releated to the Inspection Stop after it has b
 
 **Method** : `POST`
 
+**Auth **Required**** : YES
+
 **Headers**
 
 | Key | Value |
 |--------------|--------------|
 | Content-Type | application/json  |
 | Accept | application/json |
+| Authorization | Bearer + AccessToken received from Authenticate Response Result |
+
+*(Example: “Bearer yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi...”)*
 
 
 ### Stop File Data model

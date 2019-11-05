@@ -8,6 +8,8 @@ Note - Token expires in 86400 Seconds
 
 **Method** : `POST`
 
+**Auth **Required**** : No
+
 **Headers**
 
 | Key | Value |

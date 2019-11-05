@@ -7,6 +7,8 @@ Creates a New Inspection Stop.
 
 **Method** : `POST`
 
+**Auth **Required**** : YES
+
 **Headers**
 
 | Key | Value |

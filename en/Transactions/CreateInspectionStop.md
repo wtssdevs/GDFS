@@ -46,13 +46,9 @@ Creates a New Inspection Stop.
 |BasicStopDto|StopFiles|array [StopFileDto]|Optional|
 
 
-> MovementReferenceNumber -> Conditional **Required** (When MovementReferenceNumber is NULL or Empty then BillOfEntryNo Becomes Required.)
-> The MRN number is made up of Customs office code eg. JSA
-> Customs Bill of Entry date and Assessment date eg 20190828
-> Lastly the bill of entry no eg 5075236
-> Full MRN number would be JSA201908285075236
+*MovementReferenceNumber -> Conditional **Required** (When MovementReferenceNumber is NULL or Empty then BillOfEntryNo Becomes Required.) The MRN number is made up of Customs office code eg. JSA Customs  Bill of Entry date and Assessment date eg 20190828 Lastly the bill of entry no eg 5075236 Full MRN number would be JSA201908285075236*
 
-> BillOfEntryNo -> Conditional **Required** When BillOfEntryNo is NULL or Empty then MovementReferenceNumber Becomes Required.
+ *BillOfEntryNo -> Conditional **Required** When BillOfEntryNo is NULL or Empty then MovementReferenceNumber Becomes Required.*
 
 ### Stop File Data model
 | Type| Params| Values| Validation |
@@ -65,8 +61,8 @@ Creates a New Inspection Stop.
 
 
 
-> MovementReferenceNumber -> Conditional **Required** (When MovementReferenceNumber is NULL or Empty then TransactionRefId Becomes Required.)
-> TransactionRefId ->  Conditional **Required** When TransactionRefId is NULL or Empty then MovementReferenceNumber Becomes Required.
+*MovementReferenceNumber -> Conditional **Required** (When MovementReferenceNumber is NULL or Empty then TransactionRefId Becomes Required.)*
+*TransactionRefId ->  Conditional **Required** When TransactionRefId is NULL or Empty then MovementReferenceNumber Becomes Required.*
 
 **Body Raw (application/json)**
 

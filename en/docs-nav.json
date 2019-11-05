@@ -6,7 +6,7 @@
         "items": [
           {
             "text": "Authentication - Bearer Token",
-            "path": "Authentication.md"
+            "path": "Common/Authentication.md"
           }   
         ]
       },

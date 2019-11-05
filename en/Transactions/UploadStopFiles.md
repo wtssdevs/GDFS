@@ -26,8 +26,8 @@ Upload Supporting Documents/Files releated to the Inspection Stop after it has b
 |StopFileDto|TransactionRefId|number|*Conditional **Required**|
 
 
-> MovementReferenceNumber -> Conditional **Required** (When MovementReferenceNumber is NULL or Empty then TransactionRefId Becomes Required.)
-> TransactionRefId -> Conditional **Required** When TransactionRefId is NULL or Empty then MovementReferenceNumber Becomes Required.
+*MovementReferenceNumber -> Conditional **Required** (When MovementReferenceNumber is NULL or Empty then TransactionRefId Becomes Required.)*
+*TransactionRefId ->  Conditional **Required** When TransactionRefId is NULL or Empty then MovementReferenceNumber Becomes Required.*
 
 **Body Raw (application/json)**
 

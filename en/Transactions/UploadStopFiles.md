@@ -52,15 +52,15 @@ Upload Supporting Documents/Files releated to the Inspection Stop after it has b
         "fileAsBase64String": "JVBERi0xLjcNCiW1tbW1DQoxIDAgb2JqDQo8PC9UeXBlL0NhdGFsb2cvUGL1ZpZXdlclByZW=...",
         "mimeType": "application/pdf",
         "fileName": "TT01.pdf",
-        "MovementReferenceNumber": "JSA201908285075236",
-        "TransactionRefId": ""
+        "movementReferenceNumber": "JSA201908285075236",
+        "transactionRefId": ""
     },
     {
         "fileAsBase64String": "JVBERi0xLjcNCiW1tbW1DQoxIDAgb2JqDQo8PC9UeXBlL0NhdGFsb2cvUGFnZXMgMiAwIFIvT=...",
         "mimeType": "application/pdf",
         "fileName": "TT02.pdf",
-        "MovementReferenceNumber": "",
-        "TransactionRefId": "4526"
+        "movementReferenceNumber": "",
+        "transactionRefId": "4526"
     }
 ]
 ```

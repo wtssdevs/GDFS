@@ -13,7 +13,7 @@ Creates a New Inspection Stop.
 |--------------|--------------|
 | Content-Type | application/json  |
 | Accept | application/json |
-| Authorization | Bearer + Token received from Authenticate |
+| Authorization | Bearer + AccessToken received from Authenticate Response Result |
 
 *(Example: “Bearer yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi...”)*
 
@@ -53,9 +53,9 @@ Creates a New Inspection Stop.
 ### Stop File Data model
 | Type| Params| Values| Validation |
 |--------------|---------- |-------------- |------------ |
-|StopFileDto|fileAsBase64String|string [max]|**Required**|
-|StopFileDto|mimeType|string [150]|**Required**|
-|StopFileDto|fileName|string [150]|**Required**|
+|StopFileDto|FileAsBase64String|string [max]|**Required**|
+|StopFileDto|MimeType|string [150]|**Required**|
+|StopFileDto|FileName|string [150]|**Required**|
 |StopFileDto|MovementReferenceNumber|string [18]|*Conditional **Required**|
 |StopFileDto|TransactionRefId|number|*Conditional **Required**|
 
@@ -71,7 +71,7 @@ Creates a New Inspection Stop.
 ```json
 "stopType": {
     "type": "number",        
-    "enum": [{"SeaFreight": 0}, {"AirFreight": 1}]
+    "enum": [{"seaFreight": 0}, {"airFreight": 1}]
 }
 ```
 
@@ -88,7 +88,7 @@ Creates a New Inspection Stop.
     "consignee": "",
     "warehouse": "",
     "flightNumber": "FL12345",
-    "MovementReferenceNumber":"JSA201908285075236",
+    "movementReferenceNumber":"JSA201908285075236",
     "depot": "",
     "referenceNo": "",
     "billOfEntryNo": "",
@@ -112,8 +112,8 @@ Creates a New Inspection Stop.
 ```json
 {
     "result": {
-        "TransactionRefId": 4526, //BigInt
-        "TransactionNo": "SDFR19054526", //string [30]
+        "transactionRefId": 4526, //BigInt
+        "transactionNo": "SDFR19054526", //string [30]
     },
     "targetUrl": null,
     "success": true,
@@ -163,7 +163,7 @@ Creates a New Inspection Stop.
     "consignee": "",
     "warehouse": "",
     "flightNumber": "FL12345",
-    "MovementReferenceNumber":"JSA201908285075236",
+    "movementReferenceNumber":"JSA201908285075236",
     "depot": "",
     "referenceNo": "",
     "billOfEntryNo": "",
@@ -180,15 +180,15 @@ Creates a New Inspection Stop.
                 "fileAsBase64String": "JVBERi0xLjcNCiW1tbW1DQoxIDAgb2JqDQo8PC9UeXBlL0NhdGFsb2cvUGL1ZpZXdlclByZW=...",
                 "mimeType": "application/pdf",
                 "fileName": "TT01.pdf",
-                "MovementReferenceNumber": "JSA201908285075236",
-                "TransactionRefId": ""
+                "movementReferenceNumber": "JSA201908285075236",
+                "transactionRefId": ""
             },
             {
                 "fileAsBase64String": "JVBERi0xLjcNCiW1tbW1DQoxIDAgb2JqDQo8PC9UeXBlL0NhdGFsb2cvUGFnZXMgMiAwIFIvT=...",
                 "mimeType": "application/pdf",
                 "fileName": "TT02.pdf",
-                "MovementReferenceNumber": "",
-                "TransactionRefId": "4526"
+                "movementReferenceNumber": "",
+                "transactionRefId": "4526"
             }
         ]
 }
@@ -202,8 +202,8 @@ Creates a New Inspection Stop.
 ```json
 {
     "result": {
-        "TransactionRefId": 4526,
-        "TransactionNo": "SDFR19054526",
+        "transactionRefId": 4526,
+        "transactionNo": "SDFR19054526",
     },
     "targetUrl": null,
     "success": true,

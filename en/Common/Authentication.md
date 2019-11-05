@@ -30,13 +30,11 @@ Note - Token expires in 86400 Seconds
 **Content Example**
 
 ```json
-
 {
     "userNameOrEmailAddress": "UserName",
     "password": "password123",
     "rememberClient": true
 }
-
 ```
 
 ## Response *Success* 
@@ -45,7 +43,6 @@ Note - Token expires in 86400 Seconds
 **Content Example**
 
 ```json
-
 {
     "result": {
         "accessToken": "yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi...",
@@ -59,7 +56,6 @@ Note - Token expires in 86400 Seconds
     "unAuthorizedRequest": false,
     "__abp": true
 }
-
 ```
 
 
@@ -69,7 +65,6 @@ Note - Token expires in 86400 Seconds
 **Content Example**
 
 ```json
-
 {
     "result": null,
     "targetUrl": null,
@@ -83,6 +78,5 @@ Note - Token expires in 86400 Seconds
     "unAuthorizedRequest": false,
     "__abp": true
 }
-
 ```
 

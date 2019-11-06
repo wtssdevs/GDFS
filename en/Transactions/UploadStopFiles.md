@@ -39,19 +39,6 @@ Upload Supporting Documents/Files releated to the Inspection Stop after it has b
 **Content Example**
 
 ```json
-{
-    "userNameOrEmailAddress": "UserName",
-    "password": "password123",
-    "rememberClient": true
-}
-```
-
-## Response *Success* 
-**Success** : `true`
-
-**Content Example**
-
-```json
 [
     {
         "fileAsBase64String": "JVBERi0xLjcNCiW1tbW1DQoxIDAgb2JqDQo8PC9UeXBlL0NhdGFsb2cvUGL1ZpZXdlclByZW=...",
@@ -68,6 +55,23 @@ Upload Supporting Documents/Files releated to the Inspection Stop after it has b
         "transactionRefId": "4526"
     }
 ]
+```
+
+## Response *Success* 
+**Success** : `true`
+
+**Content Example**
+
+```json
+{
+    "result": null,
+    "targetUrl": null,
+    "success": true,
+    "error": null,
+    "unAuthorizedRequest": false,
+    "__abp": true
+}
+
 ```
 
 

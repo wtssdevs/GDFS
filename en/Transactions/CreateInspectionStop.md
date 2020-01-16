@@ -25,6 +25,7 @@ Creates a New Inspection Stop.
 | Type| Params| Values| Validation |
 |--------------|---------- |-------------- |------------ |
 |BasicStopDto|StopType|Enum (0)|**Required**|
+|BasicStopDto|InspectionType|string [150]|**Required**|
 |BasicStopDto|FileRefNo|string [150]|Optional|
 |BasicStopDto|CaseNumber|string [150]|Optional|
 |BasicStopDto|MasterAirWaybillNo|string [150]|Optional|
@@ -51,6 +52,8 @@ Creates a New Inspection Stop.
 *MovementReferenceNumber -> Conditional **Required** (When MovementReferenceNumber is NULL or Empty then BillOfEntryNo Becomes Required.) The MRN number is made up of Customs office code eg. JSA Customs  Bill of Entry date and Assessment date eg 20190828 Lastly the bill of entry no eg 5075236 Full MRN number would be JSA201908285075236*
 
  *BillOfEntryNo -> Conditional **Required** When BillOfEntryNo is NULL or Empty then MovementReferenceNumber Becomes Required.*
+
+ *InspectionType -> **Required** InspectionType defines the type of inspection required for the agent eg. Port Health(Detain), State Vet(Detain). This will be match on the Name or Code or AltCode fields of the Inspection Types Lookup up table*
 
 ### Stop File Data model
 | Type| Params| Values| Validation |
@@ -81,7 +84,8 @@ Creates a New Inspection Stop.
 
 ```json
 {
-    "stopType": 1, 
+    "stopType": 1,
+    "InspectionType":"Port Health(Detain)", 
     "fileRefNo": "Test",
     "caseNumber": "123456",
     "masterAirWaybillNo": "083-1234567",

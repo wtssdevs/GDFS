@@ -52,8 +52,6 @@ _MovementReferenceNumber -> Conditional **Required** (When MovementReferenceNumb
 
 _BillOfEntryNo -> Conditional **Required** When BillOfEntryNo is NULL or Empty then MovementReferenceNumber Becomes Required._
 
-_InspectionType -> **Required** InspectionType defines the type of inspection required for the agent eg. Port Health(Detain), State Vet(Detain). This will be match on the Name or Code or AltCode fields of the Inspection Types Lookup up table_
-
 ### Stop File Data model
 
 | Type        | Params                  | Values       | Validation                 |
@@ -74,7 +72,7 @@ _TransactionRefId -> Conditional **Required** When TransactionRefId is NULL or E
 | InspectionTypes | Name    | string [150] | **Required** |
 | InspectionTypes | AltCode | string [150] | **Required** |
 
-_InspectionTypes -> **Required** (Stop (Booking) will be created for each Inspection Type Provided,If only one Inspection Type listed then only one Stop wil be created.)_
+_InspectionTypes -> **Required** (InspectionType defines the type of inspection required for the agent eg. Port Health(Detain), State Vet(Detain),A Stop (Booking) will be created for each Inspection Type Provided,If only one Inspection Type listed then only one Stop wil be created.)_
 
 **Body Raw (application/json)**
 

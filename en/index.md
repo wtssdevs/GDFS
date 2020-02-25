@@ -6,11 +6,11 @@
 
 ### Credential Authentication
 
-[* Authentication - Bearer Authentication](Common/Authentication.md)
+* [Authentication - Bearer Authentication](Common/Authentication.md)
 
 ### Transactions
-* Create Stop (Inspection Request)
-* Upload Stop Inspection Files (Supporting Docs)
+* [Create Stop (Inspection Request)](Transactions/CreateInspectionStop.md) 
+* [Upload Stop Inspection Files (Supporting Docs)](Transactions/UploadStopFiles.md) 
 
 
 

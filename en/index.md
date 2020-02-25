@@ -5,7 +5,8 @@
 ### What is supported?
 
 ### Credential Authentication
-* Authentication - Bearer Authentication
+
+[* Authentication - Bearer Authentication](Common/Authentication.md)
 
 ### Transactions
 * Create Stop (Inspection Request)

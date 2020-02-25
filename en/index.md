@@ -2,6 +2,8 @@
 # GLOBAL DFS API SPECIFICATION 
 ## (Global DFS Inspection Management)
 
+![Alt text](fullLogo.png?raw=true "Optional Title")
+
 ### What is supported?
 
 ### Credential Authentication

@@ -44,9 +44,10 @@ _(Example: “Bearer yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi...”)_
 | BasicStopDto | FCLGRP                  | string [150]        | Optional                   |
 | BasicStopDto | PCKT                    | string [150]        | Optional                   |
 | BasicStopDto | Weight                  | number (double)     | Optional                   |
-| BasicStopDto | BranchCode              | string [150]        | **Required**               |
+| BasicStopDto | BranchCode              | string [150]        | Optional                   |
 | BasicStopDto | AgentCode               | string [150]        | **Required**               |
 | BasicStopDto | StopFiles               | array [StopFileDto] | Optional                   |
+| BasicStopDto | Containers              | array [string[11]]  | Optional                   |
 
 _MovementReferenceNumber -> Conditional **Required** (When MovementReferenceNumber is NULL or Empty then BillOfEntryNo Becomes Required.) The MRN number is made up of Customs office code eg. JSA Customs Bill of Entry date and Assessment date eg 20190828 Lastly the bill of entry no eg 5075236 Full MRN number would be JSA201908285075236_
 
@@ -65,7 +66,7 @@ _BillOfEntryNo -> Conditional **Required** When BillOfEntryNo is NULL or Empty t
 _MovementReferenceNumber -> Conditional **Required** (When MovementReferenceNumber is NULL or Empty then TransactionRefId Becomes Required.)_
 _TransactionRefId -> Conditional **Required** When TransactionRefId is NULL or Empty then MovementReferenceNumber Becomes Required._
 
-### InspectionTypes Data model
+### InspectionTypes Data Model
 
 | Type            | Params  | Values       | Validation   |
 | --------------- | ------- | ------------ | ------------ |
@@ -76,7 +77,7 @@ _InspectionTypes -> **Required** (InspectionType defines the type of inspection 
 
 **Body Raw (application/json)**
 
-**Content Example InspectionTypes Enum**
+**Content Example InspectionTypes**
 
 ```json
 {
@@ -139,8 +140,9 @@ _InspectionTypes -> **Required** (InspectionType defines the type of inspection 
      "fclgrp": "",
      "pckt": "",
      "weight": 25,
-     "branchCode": "PTA",
+     "branchCode": "",
      "agentCode": "DFG00149AS2",
+     "containers":["MEDU9381739","MEDU7870828","MSCU5216128"],
      "stopFiles": []
 }
 ```
@@ -225,8 +227,9 @@ _InspectionTypes -> **Required** (InspectionType defines the type of inspection 
      "fclgrp": "",
      "pckt": "",
      "weight": 25,
-     "branchCode": "PTA",
+     "branchCode": "",
      "agentCode": "DFG00149AS2",
+     "containers":["MEDU9381739","MEDU7870828","MSCU5216128"],
      "stopFiles": [
           {
                "fileAsBase64String": "JVBERi0xLjcNCiW1tbW1DQoxIDAgb2JqDQo8PC9UeXBlL0NhdGFsb2cvUGL1ZpZXdlclByZW=...",

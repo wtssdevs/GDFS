@@ -22,32 +22,33 @@ _(Example: “Bearer yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi...”)_
 
 **Data constraints**
 
-| Type         | Params                  | Values              | Validation                 |
-| ------------ | ----------------------- | ------------------- | -------------------------- |
-| BasicStopDto | StopType                | Enum (0)            | **Required**               |
-| BasicStopDto | InspectionTypes         | array []            | **Required**               |
-| BasicStopDto | FileRefNo               | string [150]        | Optional                   |
-| BasicStopDto | CaseNumber              | string [150]        | Optional                   |
-| BasicStopDto | MasterAirWaybillNo      | string [150]        | Optional                   |
-| BasicStopDto | HouseAirWaybillNo       | string [150]        | Optional                   |
-| BasicStopDto | FlightDateTime          | DateTime            | Optional                   |
-| BasicStopDto | Consignee               | string [150]        | Optional                   |
-| BasicStopDto | Warehouse               | string [150]        | Optional                   |
-| BasicStopDto | FlightNumber            | string [150]        | Optional                   |
-| BasicStopDto | ReferenceNo             | string [150]        | Optional                   |
-| BasicStopDto | Depot                   | string [150]        | Optional                   |
-| BasicStopDto | MovementReferenceNumber | string [18]         | \*Conditional **Required** |
-| BasicStopDto | BillOfEntryNo           | string [150]        | \*Conditional **Required** |
-| BasicStopDto | BillOfEntryDate         | DateTime            | Optional                   |
-| BasicStopDto | PortHealthRefNo         | string [150]        | Optional                   |
-| BasicStopDto | ContainerNo             | string [11]         | Optional                   |
-| BasicStopDto | FCLGRP                  | string [150]        | Optional                   |
-| BasicStopDto | PCKT                    | string [150]        | Optional                   |
-| BasicStopDto | Weight                  | number (double)     | Optional                   |
-| BasicStopDto | BranchCode              | string [150]        | Optional                   |
-| BasicStopDto | AgentCode               | string [150]        | **Required**               |
-| BasicStopDto | StopFiles               | array [StopFileDto] | Optional                   |
-| BasicStopDto | Containers              | array [string[11]]  | Optional                   |
+| Type         | Params                  | Values                 | Validation                 |
+| ------------ | ----------------------- | -------------------    | -------------------------- |
+| BasicStopDto | StopType                | Enum (0)               | **Required**               |
+| BasicStopDto | InspectionTypes         | array []               | **Required**               |
+| BasicStopDto | FileRefNo               | string [150]           | Optional                   |
+| BasicStopDto | CaseNumber              | string [150]           | Optional                   |
+| BasicStopDto | MasterAirWaybillNo      | string [150]           | Optional                   |
+| BasicStopDto | HouseAirWaybillNo       | string [150]           | Optional                   |
+| BasicStopDto | FlightDateTime          | DateTime               | Optional                   |
+| BasicStopDto | Consignee               | string [150]           | Optional                   |
+| BasicStopDto | Warehouse               | string [150]           | Optional                   |
+| BasicStopDto | FlightNumber            | string [150]              | Optional                   |
+| BasicStopDto | ReferenceNo             | string [150]                | Optional                   |
+| BasicStopDto | Depot                   | string [150]                 | Optional                   |
+| BasicStopDto | MovementReferenceNumber | string [18]                   | \*Conditional **Required** |
+| BasicStopDto | BillOfEntryNo           | string [150]                | \*Conditional **Required** |
+| BasicStopDto | BillOfEntryDate         | DateTime                     | Optional                   |
+| BasicStopDto | PortHealthRefNo         | string [150]                | Optional                   |
+| BasicStopDto | ContainerNo             | string [11]                 | Optional                   |
+| BasicStopDto | FCLGRP                  | string [150]                | Optional                   |
+| BasicStopDto | PCKT                    | string [150]               | Optional                   |
+| BasicStopDto | Weight                  | number (double)            | Optional                   |
+| BasicStopDto | BranchCode              | string [150]               | Optional                   |
+| BasicStopDto | AgentCode               | string [150]               | **Required**               |
+| BasicStopDto | StopFiles               | array [StopFileDto]        | Optional            |
+| BasicStopDto | Containers              | array [string[11]]         | Optional            |
+| BasicStopDto | NotificationGroup       | array [NotificationGroup]  | Optional            |
 
 _MovementReferenceNumber -> Conditional **Required** (When MovementReferenceNumber is NULL or Empty then BillOfEntryNo Becomes Required.) The MRN number is made up of Customs office code eg. JSA Customs Bill of Entry date and Assessment date eg 20190828 Lastly the bill of entry no eg 5075236 Full MRN number would be JSA201908285075236_
 
@@ -66,7 +67,7 @@ _BillOfEntryNo -> Conditional **Required** When BillOfEntryNo is NULL or Empty t
 _MovementReferenceNumber -> Conditional **Required** (When MovementReferenceNumber is NULL or Empty then TransactionRefId Becomes Required.)_
 _TransactionRefId -> Conditional **Required** When TransactionRefId is NULL or Empty then MovementReferenceNumber Becomes Required._
 
-### InspectionTypes Data Model
+### InspectionTypes Data model
 
 | Type            | Params  | Values       | Validation   |
 | --------------- | ------- | ------------ | ------------ |
@@ -77,7 +78,7 @@ _InspectionTypes -> **Required** (InspectionType defines the type of inspection 
 
 **Body Raw (application/json)**
 
-**Content Example InspectionTypes**
+**Content Example InspectionTypes **
 
 ```json
 {
@@ -95,6 +96,34 @@ _InspectionTypes -> **Required** (InspectionType defines the type of inspection 
                "altCode": "Code 4:SAPS"
           }
      ]
+}
+```
+
+### NotificationGroup Data model
+
+| Type              | Params      | Values       | Validation   |
+| ---------------   | -------     | ------------ | ------------ |
+| NotificationGroup | FullName    | string [150] | **Required** |
+| NotificationGroup | Email       | string [150] | **Required** |
+
+NotificationGroup -> Users or interested parties can be added here to receive automated event updates on the progress and become the contact point for the Inspection Stop request.
+
+**Body Raw (application/json)**
+
+**Content Example NotificationGroup **
+
+```json
+{
+     "notificationGroup": [
+       	{
+               "fullName":"Bob Sample",
+               "email":"bob@example.com"
+          },
+          {
+               "fullName":"Jane Sample",
+               "email":"Jane@example.com"
+          },	
+      ]
 }
 ```
 
@@ -135,14 +164,23 @@ _InspectionTypes -> **Required** (InspectionType defines the type of inspection 
      "referenceNo": "",
      "billOfEntryNo": "",
      "billOfEntryDate": "",
-     "portHealthRefNo": "",
-     "containerNo": "",
+     "portHealthRefNo": "",     
      "fclgrp": "",
      "pckt": "",
      "weight": 25,
      "branchCode": "",
      "agentCode": "DFG00149AS2",
      "containers":["MEDU9381739","MEDU7870828","MSCU5216128"],
+     "notificationGroup": [
+       	{
+               "fullName":"Bob Sample",
+               "email":"bob@example.com"
+          },
+          {
+               "fullName":"Jane Sample",
+               "email":"Jane@example.com"
+          },	
+     ],
      "stopFiles": []
 }
 ```
@@ -158,10 +196,12 @@ _InspectionTypes -> **Required** (InspectionType defines the type of inspection 
      "result": [
           {
                "transactionRefId": 4526,
+               "InspectionTypeRefAltCode": "Code 4:Port Health",
                "transactionNo": "SDFR19054526"
           },
           {
                "transactionRefId": 4527,
+               "InspectionTypeRefAltCode": "Code 4:Plant Inspection",
                "transactionNo": "SDFR19054526"
           }
      ],
@@ -230,6 +270,16 @@ _InspectionTypes -> **Required** (InspectionType defines the type of inspection 
      "branchCode": "",
      "agentCode": "DFG00149AS2",
      "containers":["MEDU9381739","MEDU7870828","MSCU5216128"],
+     "notificationGroup": [
+       	{
+               "fullName":"Bob Sample",
+               "email":"bob@example.com"
+          },
+          {
+               "fullName":"Jane Sample",
+               "email":"Jane@example.com"
+          },	
+     ],
      "stopFiles": [
           {
                "fileAsBase64String": "JVBERi0xLjcNCiW1tbW1DQoxIDAgb2JqDQo8PC9UeXBlL0NhdGFsb2cvUGL1ZpZXdlclByZW=...",
@@ -260,6 +310,7 @@ _InspectionTypes -> **Required** (InspectionType defines the type of inspection 
      "result": [
           {
                "transactionRefId": 4526,
+               "InspectionTypeRefAltCode": "Code 4:Port Health",
                "transactionNo": "SDFR19054526"
           }
      ],

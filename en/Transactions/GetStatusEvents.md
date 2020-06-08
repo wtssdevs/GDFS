@@ -4,7 +4,7 @@
 Retrieves a list of status events for a stop inspection request. 
 
 
-**URL** : `/api/OutBoundStop/UploadStopFiles`
+**URL** : `/api/OutboundStop/GetStatusUpdates`
 
 **Method** : `POST`
 
@@ -21,16 +21,13 @@ Retrieves a list of status events for a stop inspection request.
 *(Example: “Bearer yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi...”)*
 
 
-### Stop File Data model
+### Status Event Filter Parameters Body Data model \*(array)
 | Type| Params| Values| Validation |
 |--------------|---------- |-------------- |------------ |
-|StopFileDto|fileAsBase64String|string [max]|**Required**|
-|StopFileDto|mimeType|string [150]|**Required**|
-|StopFileDto|fileName|string [150]|**Required**|
-|StopFileDto|MovementReferenceNumber|string [18]|*Conditional **Required**|
-|StopFileDto|TransactionRefId|number|*Conditional **Required**|
+|StatusEventFilterDto|TransactionRefId|number|**Required**|
+|StatusEventFilterDto|LastKnowStatusId|number| \* **Optional nullable**|
 
-
+_When LastKnowStatusId property is left null/empty you will get the full list of status events for the given inspection stop request transaction reference Id provided. _
 
 **Body Raw (application/json)**
 
@@ -38,20 +35,13 @@ Retrieves a list of status events for a stop inspection request.
 
 ```json
 [
-    {
-        "fileAsBase64String": "JVBERi0xLjcNCiW1tbW1DQoxIDAgb2JqDQo8PC9UeXBlL0NhdGFsb2cvUGL1ZpZXdlclByZW=...",
-        "mimeType": "application/pdf",
-        "fileName": "TT01.pdf",
-        "movementReferenceNumber": "JSA201908285075236",
-        "transactionRefId": ""
-    },
-    {
-        "fileAsBase64String": "JVBERi0xLjcNCiW1tbW1DQoxIDAgb2JqDQo8PC9UeXBlL0NhdGFsb2cvUGFnZXMgMiAwIFIvT=...",
-        "mimeType": "application/pdf",
-        "fileName": "TT02.pdf",
-        "movementReferenceNumber": "",
-        "transactionRefId": "4526"
-    }
+	{
+		"TransactionRefId":3002,
+		"LastKnowStatusId":1
+	},
+	{
+		"TransactionRefId":3000
+	},
 ]
 ```
 
@@ -62,7 +52,54 @@ Retrieves a list of status events for a stop inspection request.
 
 ```json
 {
-    "result": null,
+    "result": [
+        {
+            "movementReferenceNumber": null,
+            "transactionRefId": 3000,
+            "inspectionOfficer": null,
+            "inspectionDateTime": null,
+            "statusEvents": [
+                {
+                    "statusId": 0,
+                    "statusDisplayName": "Inspection Open",
+                    "transactionRefId": "3000",
+                    "creationTime": "2019-05-02T15:15:12.0522219+02:00"
+                },
+                {
+                    "statusId": 4,
+                    "statusDisplayName": "Inspection Complete",
+                    "transactionRefId": "3000",
+                    "creationTime": "2019-05-03T09:12:32.3792393+02:00"
+                },
+                {
+                    "statusId": 2,
+                    "statusDisplayName": "Inspection Finalized",
+                    "transactionRefId": "3000",
+                    "creationTime": "2019-05-03T09:12:41.3148374+02:00"
+                }
+            ]
+        },
+        {
+            "movementReferenceNumber": null,
+            "transactionRefId": 3002,
+            "inspectionOfficer": "Lufuno Randela",
+            "inspectionDateTime": "2019-05-03T09:00:00+02:00",
+            "statusEvents": [
+                {
+                    "statusId": 4,
+                    "statusDisplayName": "Inspection Complete",
+                    "transactionRefId": "3002",
+                    "creationTime": "2019-05-03T11:10:34.4741131+02:00"
+                },
+                {
+                    "statusId": 2,
+                    "statusDisplayName": "Inspection Finalized",
+                    "transactionRefId": "3002",
+                    "creationTime": "2019-05-03T11:25:28.6966016+02:00"
+                }
+            ]
+        }
+    ],
     "targetUrl": null,
     "success": true,
     "error": null,
@@ -84,10 +121,15 @@ Retrieves a list of status events for a stop inspection request.
     "targetUrl": null,
     "success": false,
     "error": {
-        "code": 404,
-        "message": "Transaction not found",
-        "details": "Resource not found",
-        "validationErrors": null
+        "code": 422,
+        "message": "Unprocessable Entity",
+        "details": "",
+        "validationErrors": [
+            {
+                "message": "Input parameters is invalid!,Atleast one TransactionRefId is required.",
+                "members": null
+            }
+        ]
     },
     "unAuthorizedRequest": false,
     "__abp": true

@@ -25,7 +25,7 @@ Retrieves a list of status events for a stop inspection request.
 | Type| Params| Values| Validation |
 |--------------|---------- |-------------- |------------ |
 |StatusEventFilterDto|TransactionRefId|number|**Required**|
-|StatusEventFilterDto|LastKnowStatusId|number| \* **Optional/nullable**|
+|StatusEventFilterDto|LastKnowStatusId|number(nullable)| \* **Optional**|
 
 _When LastKnowStatusId property is left null/empty you will get the full list of status events for the given inspection stop request transaction reference Id provided._
 

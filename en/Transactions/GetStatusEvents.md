@@ -63,19 +63,22 @@ _When LastKnowStatusId property is left null/empty you will get the full list of
                     "statusId": 0,
                     "statusDisplayName": "Inspection Open",
                     "transactionRefId": "3000",
-                    "creationTime": "2019-05-02T15:15:12.0522219+02:00"
+                    "creationTime": "2019-05-02T15:15:12.0522219+02:00",
+		    "surveyDownloadUrl": null
                 },
                 {
                     "statusId": 4,
                     "statusDisplayName": "Inspection Complete",
                     "transactionRefId": "3000",
-                    "creationTime": "2019-05-03T09:12:32.3792393+02:00"
+                    "creationTime": "2019-05-03T09:12:32.3792393+02:00",
+		    "surveyDownloadUrl": null
                 },
                 {
                     "statusId": 2,
                     "statusDisplayName": "Inspection Finalized",
                     "transactionRefId": "3000",
-                    "creationTime": "2019-05-03T09:12:41.3148374+02:00"
+                    "creationTime": "2019-05-03T09:12:41.3148374+02:00",
+		    "surveyDownloadUrl": null
                 }
             ]
         },
@@ -89,13 +92,15 @@ _When LastKnowStatusId property is left null/empty you will get the full list of
                     "statusId": 4,
                     "statusDisplayName": "Inspection Complete",
                     "transactionRefId": "3002",
-                    "creationTime": "2019-05-03T11:10:34.4741131+02:00"
+                    "creationTime": "2019-05-03T11:10:34.4741131+02:00",
+		    "surveyDownloadUrl": null
                 },
                 {
                     "statusId": 2,
                     "statusDisplayName": "Inspection Finalized",
                     "transactionRefId": "3002",
-                    "creationTime": "2019-05-03T11:25:28.6966016+02:00"
+                    "creationTime": "2019-05-03T11:25:28.6966016+02:00",
+		    "surveyDownloadUrl": null
                 }
             ]
         }

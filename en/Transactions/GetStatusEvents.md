@@ -57,8 +57,7 @@ _When LastKnowStatusId property is left null/empty you will get the full list of
             "movementReferenceNumber": null,
             "transactionRefId": 3000,
             "inspectionOfficer": null,
-            "inspectionDateTime": null,
-	    "surveyDownloadUrl": null,
+            "inspectionDateTime": null,	    
             "statusEvents": [
                 {
                     "statusId": 0,

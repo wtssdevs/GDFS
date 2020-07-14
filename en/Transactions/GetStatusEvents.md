@@ -29,6 +29,21 @@ Retrieves a list of status events for a stop inspection request.
 
 _When LastKnowStatusId property is left null/empty you will get the full list of status events for the given inspection stop request transaction reference Id provided._
 
+
+**Available Status Events**
+
+| Order Of Events | Status Id | Status Display Name |Description|
+|--------------|--------------|--------------|--------------|
+| 1 | 0 | Inspection Open |Inspection Stop Request was received and booked in the application manually or via API call.|
+| 2 | 3 | Inspection Pending Confirmation |Booked Inspection Stop Request needs approval before the inspection can take place. |
+| 3 | 6 | Inspection Allocated | Booked Inspection Stop Request as been allocated an Inspecting officer & inspection date-time has been assigned. |
+| 4 | 1 | Inspection In Progress | Physical Inspection has started and is currently being officiated by a Global DFS inspector. |
+| 5 | 5 | Inspection Paused | Booked Inspection Stop Request has been paused due to external factors and can not continue at this time. |
+| 6 | 4 | Inspection Complete | Physical inspection has been completed by official Global DFS inspector and preliminary results have been uploaded & updated. |
+| 7 | 2 | Inspection Finalized | Booked Inspection Stop Request has been Finalized and survey report is available. |
+| 8 | 7 | Inspection Cancelled | Booked Inspection Stop Request has been Cancelled internally or by the requested party. |
+
+
 **Body Raw (application/json)**
 
 **Content Example**

@@ -3,6 +3,7 @@ name: Scheduled Ping
 on:
   schedule:
     - cron: '*/30 * * * *'
+  workflow_dispatch: # This allows manual triggering from the UI
 
 jobs:
   pinger_job:

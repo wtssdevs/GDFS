@@ -3,7 +3,7 @@ name: Scheduled Ping
 on:
   schedule:
     - cron: '*/30 * * * *'
-  workflow_dispatch: # This allows manual triggering from the UI
+  workflow_dispatch: 
 
 jobs:
   pinger_job:
@@ -12,6 +12,6 @@ jobs:
     steps:
       - id: ping
         uses: sisodiya2421/pinger@master
-        with:
-          url: "https://hal.xstream-wtss.com"
-          method: "GET"
+        env:
+          URL: "https://hal.xstream-wtss.com"
+          METHOD: "GET"

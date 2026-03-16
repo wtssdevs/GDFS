@@ -1,0 +1,16 @@
+name: Scheduled Ping
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+
+jobs:
+  pinger_job:
+    name: A job to ping
+    runs-on: ubuntu-latest
+    steps:
+      - id: ping
+        uses: sisodiya2421/pinger@master
+        with:
+          url: "https://hal.xstream-wtss.com"
+          method: "GET"
